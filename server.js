@@ -34,8 +34,8 @@ app.use(session({
     saveUninitialized: false
 }));
 
-//require('./routes/html-routes')(app);
-//require('./routes/api-routes')(app);
+require('./routes/html-routes')(app);
+require('./routes/api-routes')(app);
 
 app.listen(PORT, function() {
     console.log('Listening to ' + PORT);
