@@ -15,7 +15,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 mongoose.promise = Promise;
-mongoose.connect('mongodb://localh')
+mongoose.connect('mongodb://localhost/nytreact')
 var db = mongoose.connection;
 
 db.on('error', function(err) {    

@@ -11,8 +11,7 @@ var Saved = React.createClass({
 
     deleteArticle: function(event) {
         Script.deleteArticle(event.target.id).then(() => {
-            var element = document.getElementById(event.target.id+'__');
-            element.parentElement.removeChild(element);
+            this.props.update();
         });        
     },
 
