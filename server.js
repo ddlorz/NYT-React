@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const reactRouter = require('react-router');
 const path = require('path');
-const session = require('express-session');
 
 const app = express();
 const PORT = (process.env.PORT || 8080);
@@ -16,23 +15,17 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 mongoose.promise = Promise;
-mongoose.connect('mongodb://localhost/nytreact')
+mongoose.connect('mongodb://localh')
 var db = mongoose.connection;
 
-db.on('error', function(err) {
+db.on('error', function(err) {    
     console.log('Mongoose Error: ' + err);
+    mongoose.connect('mongodb://heroku_j8nvp8qz:v1g0s4e8fojvo746eadtv828vv@ds041671.mlab.com:41671/heroku_j8nvp8qz')
 });
 
 db.once('open', function() {
     console.log('Successful connection to MongoDB');
 });
-
-app.set('trust proxy', 1);
-app.use(session({
-    secret: 'cat',
-    resave: false,
-    saveUninitialized: false
-}));
 
 require('./routes/api-routes')(app);
 
