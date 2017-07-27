@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var Parent = require('./components/Parent')
+var Main = require('./components/Main')
 
-ReactDOM.render(<Parent />, document.getElementById('app'));
+ReactDOM.render(<Main />, document.getElementById('app'));

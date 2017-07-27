@@ -41,3 +41,54 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+.searchRes {
+	font-size: 12pt;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	max-width: 630px;
+	margin-left: 20px;
+	position: relative;
+	left: 20px;
+}
+.savedRes {
+	font-size: 12pt;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	max-width: 630px;
+	float: left;
+	margin-left: 20px;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+h4 {
+	font-size: 10pt;
+}
+.date {	
+	clear: both;
+	position: relative;
+	left: 88px;
+	bottom: 10px;
+	display: inline;
+}
+.add {
+	text-decoration: underline;
+	clear: both;
+	display: inline;
+}
+.comment {
+	padding: 0 0 0 10px;
+	border: outset; 
+	border-width: 1px;
+	width: 600px;
+	display: block;	
+}
+.comment-header {
+	font-size: 8pt;
+	text-decoration: underline;
+}

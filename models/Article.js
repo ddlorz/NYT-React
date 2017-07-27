@@ -7,11 +7,14 @@ var ArticleSchema = new Schema({
         unique: true
     },
     date: {
-        type: Date
+        type: String
     },
     link: {
         type: String,
         unique: true
+    },
+    comments: {
+        type: Array
     }
 });
 
