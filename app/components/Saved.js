@@ -1,33 +1,37 @@
-var React = require('react')
+import React from 'react';
 
 var Script = require('./util/script');
 
-var Saved = React.createClass({
-    getInitialState: function() {
-        return {
+class Saved extends React.Component{
+
+    constructor () {
+        super();
+        this.state = {
             articles: []
         };
-    },
+        this.deleteArticle = this.deleteArticle.bind(this);
+        this.addComment = this.addComment.bind(this);
+    }
 
-    deleteArticle: function(event) {
+    deleteArticle (event) {
         Script.deleteArticle(event.target.id).then(() => {
             this.props.update();
         });        
-    },
+    }
 
-    addComment: function(event) {
+    addComment (event) {
         let id = event.target.id.replace('_add', '');
         let comment = document.getElementById(id + '_comment').value;
         Script.addComment(comment, id).then(() => {
             this.props.update();
         });
-    },
+    }
 
-    render: function() {
+    render () {
         return (
             <div className='row'>  
                 <div className='col-md-8 col-md-offset-2'>    
-                    <div className='page-header text-center'><h4>Saved Articles</h4></div>              
+                    <div className='page-header text-center'><h4 className='title'>Saved Articles</h4></div>              
                     <ul className='list-group' id='savedList'>                     
                         {this.props.dbArticles.map((dbArticle) => {
                             return (
@@ -59,6 +63,6 @@ var Saved = React.createClass({
             </div>
         ); 
     }
-});
+};
 
-module.exports = Saved;
+export default Saved;

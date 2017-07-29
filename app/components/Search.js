@@ -1,18 +1,24 @@
-var React = require('react')
+import React from 'react';
+
 var Script = require('./util/script');
 
-var Search = React.createClass({
+class Search extends React.Component{
 
-    saveArticle: function(event) {
+    constructor () {
+        super();
+        this.saveArticle = this.saveArticle.bind(this);
+    }
+
+    saveArticle (event) {
         Script.saveArticle(this.props.articles, event.target.id);
         this.props.update();
-    },
+    }
 
-    render: function() {
+    render () {
         return (
             <div className='row'>
                 <div className='col-md-8 col-md-offset-2'>
-                    <div className='page-header text-center'><h4>Search Results</h4></div> 
+                    <div className='page-header text-center'><h4 className='title'>Search Results</h4></div> 
                     <h6 className='text-center' id='placeHolder'>No Results</h6>
                     <ul className='list-group'>                     
                         {this.props.articles.map((article) => {
@@ -30,6 +36,6 @@ var Search = React.createClass({
             </div>
         ); 
     }
-});
+};
 
-module.exports = Search;
+export default Search;

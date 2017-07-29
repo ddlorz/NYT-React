@@ -20,7 +20,6 @@ module.exports = {
     },
 
     deleteArticle: function(id) {
-        console.log(id);
         return axios.delete('/api/saved/' + id);
     },
 

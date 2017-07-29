@@ -25,7 +25,6 @@ module.exports = function(app) {
     });
 
     app.delete('/api/saved/:id', function(req, res) {
-        console.log(req.params.id);
         Article.findByIdAndRemove({'_id': req.params.id}, function(err, doc) {
             if (err) console.log(err);
             res.end();
@@ -35,7 +34,6 @@ module.exports = function(app) {
     app.post('/api/search', function(req, res) {
         var url = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=8c8884136e4f47a3a3ba08bfe7b9ff1b';
         url = url + '&q=' + req.body.topic + '&begin_date=' + req.body.start + '&end_date=' + req.body.end;
-        console.log(url);
 
         request(url, function(error, response) {
             var nytResponse = JSON.parse(response.body).response.docs;
@@ -44,7 +42,6 @@ module.exports = function(app) {
     });
 
     app.post('/api/add_comment', function(req, res) {
-        console.log(req.body)
         Article.findByIdAndUpdate(req.body.id, 
             { 
                 '$push': {
