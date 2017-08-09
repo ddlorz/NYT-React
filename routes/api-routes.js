@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 module.exports = function(app) {
     app.post('/api/saved', function(req, res) {
         var newEntry = {
-            title: req.body.lead_paragraph,
+            title: req.body.snippet,
             date: moment().format('L'),
             link: req.body.web_url
         };
